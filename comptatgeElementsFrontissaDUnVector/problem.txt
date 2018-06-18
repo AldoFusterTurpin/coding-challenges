@@ -1,0 +1,21 @@
+(in Catalan)
+Donat un vector de nombres, diem que un element és frontissa si és igual que la diferència entre la suma de tots els elements que el 
+segueixen menys la suma de tots els elements que el precedeixen.
+Considerem, com sempre, que la suma de 0 elements és 0.
+
+Per exemple, al vector
+
+ 3  12  5  2  2  9  4  1  -3  9
+tenim un element frontissa, el primer 2, perquè (2+9+4+1−3+9)−(3+12+5)=22−20=2
+
+En canvi, al vector
+
+ 3  0  -5  2  2
+no hi tenim cap element frontissa.
+
+Dissenyeu una operació iterativa que, donat un vector d’int v, obtingui el nombre d’elements frontissa de v. 
+Feu servir aquesta especificació:
+
+ int comptatge_frontisses(const vector<int> &v)
+ /* Pre: cert */
+ /* Post: el resultat es el nombre d'elements frontissa de v */
