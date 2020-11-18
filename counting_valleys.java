@@ -23,8 +23,9 @@ class Result {
      *  2. STRING path
      */
     public static int countingValleys(int steps, String path) {
-        int nValleys = 0;
-        int nUp = 0, nDown = 0;
+        int nUp, nDown, nValleys;
+        nUp = nDown = nValleys = 0;
+        
         char previous, actual;
         
         for (int i = 1; i < steps; i += 2) {
