@@ -18,7 +18,7 @@ func EqualSlices(s1, s2 []int32) bool {
 }
 
 func TestEqualSlices(t *testing.T) {
-	tc := map[string]struct {
+	tt := map[string]struct {
 		s1       []int32
 		s2       []int32
 		expected bool
@@ -60,16 +60,18 @@ func TestEqualSlices(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tc {
-		got := EqualSlices(tt.s1, tt.s2)
-		if got != tt.expected {
-			t.Errorf("Expected %v but got: %v.", tt.expected, got)
-		}
+	for name, tc := range tt {
+		t.Run(name, func(t *testing.T) {
+			got := EqualSlices(tc.s1, tc.s2)
+			if got != tc.expected {
+				t.Errorf("Expected %v but got: %v.", tc.expected, got)
+			}
+		})
 	}
 }
 
 func TestClimbingLeaderboard(t *testing.T) {
-	tc := map[string]struct {
+	tt := map[string]struct {
 		ranked   []int32
 		player   []int32
 		expected []int32
@@ -96,11 +98,11 @@ func TestClimbingLeaderboard(t *testing.T) {
 		},
 	}
 
-	for name, tt := range tc {
+	for name, tc := range tt {
 		t.Run(name, func(t *testing.T) {
-			got := climbingLeaderboard(tt.ranked, tt.player)
-			if !EqualSlices(got, tt.expected) {
-				t.Errorf("Expected %v but got: %v.", tt.expected, got)
+			got := climbingLeaderboard(tc.ranked, tc.player)
+			if !EqualSlices(got, tc.expected) {
+				t.Errorf("Expected %v but got: %v.", tc.expected, got)
 			}
 		})
 	}
