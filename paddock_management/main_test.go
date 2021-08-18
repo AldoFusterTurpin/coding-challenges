@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestPaddockManager(t *testing.T) {
+func TestGetResult(t *testing.T) {
 	tt := map[string]struct {
 		paddockTypes []PaddockType
 		paddocks     []Paddock
