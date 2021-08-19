@@ -2,42 +2,6 @@ package main
 
 import "sort"
 
-type PaddockType struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-}
-
-type Paddock struct {
-	PaddockManagerID int `json:"paddockManagerId"`
-	FarmID           int `json:"farmId"`
-	PaddockTypeID    int `json:"paddockTypeId"`
-	HarvestYear      int `json:"harvestYear"`
-	Area             int `json:"area"`
-}
-
-type ResultType struct {
-	PaddockType
-	HectaresSum int
-}
-
-type ByHectare []ResultType
-
-func (bh ByHectare) Len() int {
-	return len(bh)
-}
-
-func (bh ByHectare) Less(i, j int) bool {
-	return bh[i].HectaresSum > bh[j].HectaresSum
-}
-
-func (bh ByHectare) Swap(i, j int) {
-	bh[i], bh[j] = bh[j], bh[i]
-}
-
-func sortResult(result []ResultType) {
-	sort.Sort(ByHectare(result))
-}
-
 func SolveProblem(paddockTypes []PaddockType, paddocks []Paddock) []ResultType {
 	// key: id of paddockType
 	// value: sum of hectares of all paddocks that have as paddockTypeId the key of this entry of mp
@@ -45,7 +9,7 @@ func SolveProblem(paddockTypes []PaddockType, paddocks []Paddock) []ResultType {
 	mp := getSumOfHectares(paddocks)
 
 	result := calculateResult(mp, paddockTypes)
-	sortResult(result)
+	sort.Sort(ByHectare(result))
 
 	return result
 }
