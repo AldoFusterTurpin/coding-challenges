@@ -1,4 +1,4 @@
-package main
+package paddock
 
 import (
 	"reflect"
@@ -78,7 +78,8 @@ func TestGetResult(t *testing.T) {
 
 	for name, tc := range tt {
 		t.Run(name, func(t *testing.T) {
-			got := SolveProblem(tc.paddockTypes, tc.paddocks)
+			sps := SimplePaddockSolver{}
+			got := sps.SolveProblem(tc.paddockTypes, tc.paddocks)
 			if !reflect.DeepEqual(tc.expected, got) {
 				t.Errorf("Expected %v but got: %v.", tc.expected, got)
 			}
