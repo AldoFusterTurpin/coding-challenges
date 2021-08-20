@@ -74,6 +74,50 @@ func TestSolveProblem(t *testing.T) {
 				},
 			},
 		},
+		"simple_input2": {
+			[]PaddockType{
+				{1, "PALTOS"},
+				{2, "AVELLANOS"},
+				{3, "CEREZAS"},
+				{4, "NOGALES"},
+			},
+			[]Paddock{
+				{6, 1, 1, 2019, 3},
+				{1, 3, 2, 2019, 87},
+				{5, 3, 3, 2020, 91},
+				{2, 2, 4, 2021, 112},
+			},
+			[]ResultType{
+				{
+					PaddockType{
+						4,
+						"NOGALES",
+					},
+					112,
+				},
+				{
+					PaddockType{
+						3,
+						"CEREZAS",
+					},
+					91,
+				},
+				{
+					PaddockType{
+						2,
+						"AVELLANOS",
+					},
+					87,
+				},
+				{
+					PaddockType{
+						1,
+						"PALTOS",
+					},
+					3,
+				},
+			},
+		},
 	}
 
 	for name, tc := range tt {
