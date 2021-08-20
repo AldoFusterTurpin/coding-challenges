@@ -15,7 +15,6 @@ type SimplePaddockSolver struct {
 }
 
 func (s SimplePaddockSolver) SolveProblem(paddockTypes []PaddockType, paddocks []Paddock) []ResultType {
-	// i.e: mp[i] returns the sum of hectares of all the paddocks that have "i" as paddockTypeId.
 	mp := s.getSumOfHectares(paddocks)
 
 	result := s.calculateResult(mp, paddockTypes)
@@ -24,6 +23,10 @@ func (s SimplePaddockSolver) SolveProblem(paddockTypes []PaddockType, paddocks [
 	return result
 }
 
+// Returns a map where:
+// key is id of paddockType
+// value is sum of hectares of all paddocks that have as paddockTypeId the key of this map entry.
+// i.e: mp[i] returns the sum of hectares of all the paddocks that have "i" as paddockTypeId.
 func (s SimplePaddockSolver) getSumOfHectares(paddocks []Paddock) map[int]int {
 	mp := make(map[int]int)
 	for _, paddock := range paddocks {
