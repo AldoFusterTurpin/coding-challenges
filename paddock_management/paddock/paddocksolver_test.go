@@ -12,13 +12,13 @@ func TestSolveProblem(t *testing.T) {
 		expected     []ResultType
 	}{
 		"simple_input": {
-			paddockTypes: []PaddockType{
+			[]PaddockType{
 				{1, "PALTOS"},
 				{2, "AVELLANOS"},
 				{3, "CEREZAS"},
 				{4, "NOGALES"},
 			},
-			paddocks: []Paddock{
+			[]Paddock{
 				{6, 1, 1, 2019, 1200},
 				{1, 3, 4, 2019, 500},
 				{5, 3, 2, 2020, 20000},
@@ -43,7 +43,7 @@ func TestSolveProblem(t *testing.T) {
 				{6, 1, 2, 2012, 10587},
 				{2, 2, 2, 2018, 16750},
 			},
-			expected: []ResultType{
+			[]ResultType{
 				{
 					PaddockType{
 						2,
