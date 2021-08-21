@@ -138,31 +138,31 @@ func TestSolveProblem(t *testing.T) {
 			[]ResultType{
 				{
 					PaddockType{
-						4,
-						"NOGALES",
+						2,
+						"B",
 					},
-					112,
+					99,
+				},
+				{
+					PaddockType{
+						4,
+						"C",
+					},
+					98,
 				},
 				{
 					PaddockType{
 						3,
-						"CEREZAS",
+						"A",
 					},
-					91,
-				},
-				{
-					PaddockType{
-						2,
-						"AVELLANOS",
-					},
-					87,
+					77,
 				},
 				{
 					PaddockType{
 						1,
-						"PALTOS",
+						"D",
 					},
-					3,
+					23,
 				},
 			},
 		},
