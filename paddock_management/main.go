@@ -18,12 +18,12 @@ func SolveProblem(paddockTypesJSON, paddocksJSON []byte) []paddock.ResultType {
 
 	var paddockTypes []paddock.PaddockType
 	if err := json.Unmarshal(paddockTypesJSON, &paddockTypes); err != nil {
-		fmt.Println(err.Error())
+		panic(err)
 	}
 
 	var paddocks []paddock.Paddock
 	if err := json.Unmarshal(paddocksJSON, &paddocks); err != nil {
-		fmt.Println(err.Error())
+		panic(err)
 	}
 
 	return sps.SolveProblem(paddockTypes, paddocks)
@@ -32,20 +32,20 @@ func SolveProblem(paddockTypesJSON, paddocksJSON []byte) []paddock.ResultType {
 func main() {
 	paddockTypesJSON, err := ioutil.ReadFile(paddockTypesFile)
 	if err != nil {
-		fmt.Println("Error", err)
+		panic(err)
 	}
 
 	paddocksJSON, err := ioutil.ReadFile(paddocksFile)
 	if err != nil {
-		fmt.Println("Error", err)
+		panic(err)
 	}
 
-	result := SolveProblem([]byte(paddockTypesJSON), []byte(paddocksJSON))
+	result := SolveProblem(paddockTypesJSON, paddocksJSON)
 
 	resultJSON, err := json.MarshalIndent(result, "", "  ")
 	if err != nil {
-		fmt.Println("Error", err)
+		panic(err)
 	}
 
-	fmt.Printf("Result is:%s\n", string(resultJSON))
+	fmt.Printf("Result is: %s\n", string(resultJSON))
 }
