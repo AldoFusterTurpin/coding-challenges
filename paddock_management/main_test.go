@@ -46,33 +46,33 @@ func TestSolveProblem(t *testing.T) {
 				{ "paddockManagerId": 2, "farmId": 2, "paddockTypeId": 2, "harvestYear": 2018, "area": 16750 }
 			]`),
 			[]paddock.ResultType{
-				{
-					paddock.PaddockType{
-						2,
-						"AVELLANOS",
+				paddock.ResultType{
+					PaddockType: paddock.PaddockType{
+						ID:   2,
+						Name: "AVELLANOS",
 					},
-					88008,
+					HectaresSum: 88008,
 				},
 				{
-					paddock.PaddockType{
-						1,
-						"PALTOS",
+					PaddockType: paddock.PaddockType{
+						ID:   1,
+						Name: "PALTOS",
 					},
-					56259,
+					HectaresSum: 56259,
 				},
 				{
-					paddock.PaddockType{
-						3,
-						"CEREZAS",
+					PaddockType: paddock.PaddockType{
+						ID:   3,
+						Name: "CEREZAS",
 					},
-					38073,
+					HectaresSum: 38073,
 				},
 				{
-					paddock.PaddockType{
-						4,
-						"NOGALES",
+					PaddockType: paddock.PaddockType{
+						ID:   4,
+						Name: "NOGALES",
 					},
-					2151,
+					HectaresSum: 2151,
 				},
 			},
 		},
