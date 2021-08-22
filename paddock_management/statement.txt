@@ -1,3 +1,5 @@
+INPUT of the problem is array "paddockType" and array "paddocks":
+
 const paddockType = [
   { id: 1, name: 'PALTOS' },
   { id: 2, name: 'AVELLANOS' },
@@ -31,10 +33,30 @@ const paddocks = [
   { paddockManagerId: 2, farmId: 2, paddockTypeId: 2, harvestYear: 2018, area: 16750 }
 ];
 
-English:
-Return an array with the names of each paddockType, ordered in decreasing order by the
+What to do?
+Return an array with the paddockTypes, ordered in decreasing order by the
 TOTAL sum of the number of hectares planted for each of them, found in the paddocks arrangement.
 
-Español:
-Devolver un arreglo con los nombres de cada paddocktype, ordenados decrecientemente por la 
-suma TOTAL de la cantidad de hectáreas plantadas en cada uno de ellos, que se encuentre en el arreglo paddocks.
+Expected OUTPUT with above input is:
+[
+  {
+    "id": 2,
+    "name": "AVELLANOS",
+    "HectaresSum": 88008
+  },
+  {
+    "id": 1,
+    "name": "PALTOS",
+    "HectaresSum": 56259
+  },
+  {
+    "id": 3,
+    "name": "CEREZAS",
+    "HectaresSum": 38073
+  },
+  {
+    "id": 4,
+    "name": "NOGALES",
+    "HectaresSum": 2151
+  }
+]
