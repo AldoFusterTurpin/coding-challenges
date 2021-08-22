@@ -14,8 +14,6 @@ const (
 )
 
 func SolveProblem(paddockTypesJSON, paddocksJSON []byte) []paddock.ResultType {
-	sps := paddock.SimplePaddockSolver{}
-
 	var paddockTypes []paddock.PaddockType
 	if err := json.Unmarshal(paddockTypesJSON, &paddockTypes); err != nil {
 		panic(err)
@@ -26,6 +24,7 @@ func SolveProblem(paddockTypesJSON, paddocksJSON []byte) []paddock.ResultType {
 		panic(err)
 	}
 
+	sps := paddock.SimplePaddockSolver{}
 	return sps.SolveProblem(paddockTypes, paddocks)
 }
 
