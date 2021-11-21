@@ -13,7 +13,7 @@ const (
 	paddocksFile     = "./input/paddocks.json"
 )
 
-func SolveProblem(paddockTypesJSON, paddocksJSON []byte) []paddock.ResultType {
+func SolveProblem(paddockTypesJSON, paddocksJSON []byte) string {
 	var paddockTypes []paddock.PaddockType
 	if err := json.Unmarshal(paddockTypesJSON, &paddockTypes); err != nil {
 		panic(err)
@@ -25,7 +25,15 @@ func SolveProblem(paddockTypesJSON, paddocksJSON []byte) []paddock.ResultType {
 	}
 
 	sps := paddock.SimplePaddockSolver{}
-	return sps.SolveProblem(paddockTypes, paddocks)
+	result := sps.SolveProblem(paddockTypes, paddocks)
+
+	//resultJSON, err := json.MarshalIndent(result, "", "  ")
+	resultJSON, err := json.Marshal(result)
+	if err != nil {
+		panic(err)
+	}
+
+	return string(resultJSON)
 }
 
 func main() {
@@ -41,10 +49,5 @@ func main() {
 
 	result := SolveProblem(paddockTypesJSON, paddocksJSON)
 
-	resultJSON, err := json.MarshalIndent(result, "", "  ")
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Printf("Result is: %s\n", string(resultJSON))
+	fmt.Printf("Result is: %s\n", result)
 }

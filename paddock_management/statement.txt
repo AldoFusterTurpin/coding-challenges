@@ -1,4 +1,4 @@
-INPUT of the problem is array "paddockType" and array "paddocks":
+INPUT of the problem is the array "paddockType" and the array "paddocks":
 
 const paddockType = [
   { id: 1, name: 'PALTOS' },

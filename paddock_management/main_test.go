@@ -3,15 +3,13 @@ package main
 import (
 	"reflect"
 	"testing"
-
-	"github.com/AldoFusterTurpin/coding-challenges/paddock_management/paddock"
 )
 
 func TestSolveProblem(t *testing.T) {
 	tt := map[string]struct {
 		paddockTypesJSON []byte
 		paddocksJSON     []byte
-		expected         []paddock.ResultType
+		expected         string
 	}{
 		"simple_input": {
 			[]byte(`[
@@ -45,36 +43,7 @@ func TestSolveProblem(t *testing.T) {
 				{ "paddockManagerId": 6, "farmId": 1, "paddockTypeId": 2, "harvestYear": 2012, "area": 10587 },
 				{ "paddockManagerId": 2, "farmId": 2, "paddockTypeId": 2, "harvestYear": 2018, "area": 16750 }
 			]`),
-			[]paddock.ResultType{
-				paddock.ResultType{
-					PaddockType: paddock.PaddockType{
-						ID:   2,
-						Name: "AVELLANOS",
-					},
-					HectaresSum: 88008,
-				},
-				{
-					PaddockType: paddock.PaddockType{
-						ID:   1,
-						Name: "PALTOS",
-					},
-					HectaresSum: 56259,
-				},
-				{
-					PaddockType: paddock.PaddockType{
-						ID:   3,
-						Name: "CEREZAS",
-					},
-					HectaresSum: 38073,
-				},
-				{
-					PaddockType: paddock.PaddockType{
-						ID:   4,
-						Name: "NOGALES",
-					},
-					HectaresSum: 2151,
-				},
-			},
+			`[{"id":2,"name":"AVELLANOS","HectaresSum":88008},{"id":1,"name":"PALTOS","HectaresSum":56259},{"id":3,"name":"CEREZAS","HectaresSum":38073},{"id":4,"name":"NOGALES","HectaresSum":2151}]`,
 		},
 	}
 
